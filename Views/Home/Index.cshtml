@@ -1,0 +1,41 @@
+﻿@model List<FirstProject.Models.ogrenciler>
+@{
+    ViewData["Title"] = "Anasayfa";
+}
+
+<div class="text-center">
+
+    <h1 class="display-4">Öğrenci İşlemleri</h1>
+
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Ad</th>
+      <th scope="col">Soyad</th>
+      <th scope="col">No</th>
+      <th scope="col">İşlem</th>
+    </tr>
+  </thead>
+  <tbody>
+      @{
+        int sayac=1;
+      @foreach(var item in Model){
+          
+          <tr>
+        <th scope="row">@sayac</th>
+            <td>@item.ad</td>
+            <td>@item.soyad</td>
+            <td>@item.no</td>
+            <td>@Html.ActionLink("Sil", "siltemp", new { id=item.ID }) @Html.ActionLink("Güncelle", "guncelle", new { id=item.ID })</td>
+        </tr>
+        sayac++;
+      }
+      }
+    
+    
+  </tbody>
+</table>
+
+    
+</div>
